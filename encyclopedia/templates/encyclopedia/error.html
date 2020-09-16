@@ -1,0 +1,8 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}Error{% endblock %}
+
+{% block body %}
+<h1>{{ message }}</h1>
+<a href="{% url 'wiki:index' %}">Go somewhere safe</a>
+{% endblock %}

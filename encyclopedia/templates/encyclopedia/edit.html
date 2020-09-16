@@ -1,0 +1,15 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}Edit entry{% endblock %}
+
+{% block body %}
+    <h1>Editing "{{ entry_name|capfirst }}"</h1>
+    <form action="{% url 'wiki:edit_entry' entry_name %}" method="POST">
+        {% csrf_token %}
+        {{ edit_form.entry_description.label_tag }}
+        <code>{{ edit_form.entry_description }}</code>
+        {{ edit_form.captcha.label_tag }}
+        {{ edit_form.captcha }}
+        <button type="submit" class="btn btn-dark">Save changes</button>
+    </form>
+{% endblock %}
